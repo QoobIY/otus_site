@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+    <h1>Добро пожаловать на главную страницу курсов</h1>
+    {% if not user.is_authenticated %}
+    Требуется авторизация
+        <button><a href="{% url 'login' %}">Войти</a></button>
+        <button><a href="{% url 'signup' %}">Зарегестрироваться</a></button>
+    {% else %}
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'index' %}">Главная страница</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Список курсов</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Список занятий</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Список преподавателей</a>
+            </li>
+            <li class="nav-item">
+                <span class="nav-link">Пользователь {{ user.first_name }}</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Выйти</a>
+            </li>
+        </ul>
+        <div>
+            Добро пожаловать на главную страницу курсов
+        </div>
+    {% endif %}
+
+{% endblock %}

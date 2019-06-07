@@ -1,20 +1,28 @@
 from django.shortcuts import render, HttpResponse
-from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import OtusUser, Course, Lesson
 from .serializers import UserSerializer, CourseSerializer, LessonSerializer
 from rest_framework import generics
 from rest_framework import status
 import hashlib
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
+from .forms import SignUpForm
 
 
-def index(request):
-    return HttpResponse('<h1>hello world</h1>')
-
-
-class OK(APIView):
-    def get(self, request):
-        return Response({'ans': 'Hello world'})
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('index')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 class UserView(generics.ListCreateAPIView):

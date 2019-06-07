@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from datetime import datetime
 
 class Course(models.Model):
     name = models.CharField(max_length=40)
@@ -7,14 +8,13 @@ class Course(models.Model):
 
 
 class OtusUser(models.Model):
-    name = models.CharField(max_length=40)
-    surname = models.CharField(max_length=40)
-    email = models.EmailField(max_length=40)
-    password = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     courses = models.ManyToManyField(Course, blank=True)
+    teacher = models.BooleanField(default=False)
 
 
 class Lesson(models.Model):
     name = models.CharField(max_length=40)
     description = models.TextField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    date = models.DateField(default=datetime.now)
