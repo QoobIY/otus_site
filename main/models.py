@@ -43,7 +43,7 @@ def generate():
             tmp_lesson = Lesson(
                 name='L{}'.format(j),
                 description='This is lesson #{}'.format(j),
-                course = tmp_course,
-                teacher = random.choice(otususers)
+                course=tmp_course,
+                teacher=random.choice(otususers)
             )
             tmp_lesson.save()

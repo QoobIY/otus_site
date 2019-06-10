@@ -9,6 +9,7 @@ from django.contrib.auth import login, authenticate
 from django.views.generic import TemplateView
 from .forms import SignUpForm
 
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -17,7 +18,7 @@ def signup(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            OtusUser.objects.create(user = user)
+            OtusUser.objects.create(user=user)
             login(request, user)
             return redirect('index')
     else:
@@ -98,19 +99,18 @@ def generate_view(request):
 class JoinView(TemplateView):
     template_name = 'main/join.html'
 
-    def get_context_data(self,**kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
-        otus_user = OtusUser.objects.get(user = user)
+        otus_user = OtusUser.objects.get(user=user)
         course_list = Course.objects.exclude(students__in=[otus_user.id])
         context['course_list'] = course_list
         return context
 
     def post(self, request):
         user = request.user
-        otus_user = OtusUser.objects.get(user = user)
+        otus_user = OtusUser.objects.get(user=user)
         course_id = request.POST['course_id']
-        print(request, user,'otus' ,otus_user,'zzz', request.POST['course_id'])
-        course = Course.objects.get(id= course_id)
+        course = Course.objects.get(id=course_id)
         course.students.add(otus_user)
         return HttpResponse('Вы успешно записались на курс - {}'.format(course.name))
