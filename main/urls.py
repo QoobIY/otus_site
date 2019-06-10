@@ -13,5 +13,6 @@ urlpatterns = [
     path('api/teachers', views.TeacherView.as_view(),  name='teachers'),
     path('api/teacher/<int:pk>/', views.TeacherDetailView.as_view()),
     path('auth/',include('django.contrib.auth.urls')),
-    path('generate', views.generate_view)
+    path('generate', views.generate_view),
+    path('join', views.JoinView.as_view(), name='join'),
 ]

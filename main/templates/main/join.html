@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Запись на курс
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% if not user.is_authenticated %}
+            Требуется авторизация
+            <button><a href="{% url 'login' %}">Войти</a></button>
+            <button><a href="{% url 'signup' %}">Зарегестрироваться</a></button>
+        {% else %}
+            Выберите курс, на который вы хотите записаться
+            <form action="/join" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="course-list">Курсы</label>
+                    <select name="course_id" class="form-control" id="course-list">
+                    {% for course in course_list %}
+                        <option value="{{ course.id }}">{{ course.name }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Записаться</button>
+            </form>
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}

@@ -6,6 +6,7 @@ from rest_framework import generics, status, views
 import hashlib
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
+from django.views.generic import TemplateView
 from .forms import SignUpForm
 
 def signup(request):
@@ -92,3 +93,24 @@ class TeacherDetailView(generics.ListCreateAPIView):
 def generate_view(request):
     generate()
     return HttpResponse('Data generated')
+
+
+class JoinView(TemplateView):
+    template_name = 'main/join.html'
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        otus_user = OtusUser.objects.get(user = user)
+        course_list = Course.objects.exclude(students__in=[otus_user.id])
+        context['course_list'] = course_list
+        return context
+
+    def post(self, request):
+        user = request.user
+        otus_user = OtusUser.objects.get(user = user)
+        course_id = request.POST['course_id']
+        print(request, user,'otus' ,otus_user,'zzz', request.POST['course_id'])
+        course = Course.objects.get(id= course_id)
+        course.students.add(otus_user)
+        return HttpResponse('Вы успешно записались на курс - {}'.format(course.name))

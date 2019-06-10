@@ -3,14 +3,19 @@ from django.contrib.auth.models import User
 from datetime import datetime
 import random
 
-class Course(models.Model):
-    name = models.CharField(max_length=40)
-    description = models.TextField()
-
 
 class OtusUser(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     teacher = models.BooleanField(default=False)
+
+    def __str__(self):
+        return "{} {}".format(self.user.first_name, self.user.last_name)
+
+
+class Course(models.Model):
+    name = models.CharField(max_length=40)
+    description = models.TextField()
+    students = models.ManyToManyField(OtusUser)
 
 
 class Lesson(models.Model):
