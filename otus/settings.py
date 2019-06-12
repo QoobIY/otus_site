@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
     'main.apps.MainConfig',
+    'graphene_django'
 
 ]
 
@@ -124,3 +125,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
+
+GRAPHENE = {
+    'SCHEMA': 'otus.schema.schema'
+}
