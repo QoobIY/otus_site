@@ -68,12 +68,12 @@ class LessonDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 class TeacherView(views.APIView):
     def get(self, request):
-        teachers = OtusUser.objects.select_related().filter(teacher=True)
+        teachers = OtusUser.objects.select_related('user').prefetch_related('lessons').filter(teacher=True)
         teachers_list = []
         for teacher in teachers:
             user = teacher.user
             lessons = []
-            for lesson in teacher.lesson.select_related().all():
+            for lesson in teacher.lessons.select_related('course').all():
                 lessons.append({
                     'name': lesson.name,
                     'course': lesson.course.name

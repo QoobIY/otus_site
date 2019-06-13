@@ -22,7 +22,7 @@ class Lesson(models.Model):
     name = models.CharField(max_length=40)
     description = models.TextField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
-    teacher = models.ForeignKey(OtusUser, on_delete=models.CASCADE, null=True, related_name='lesson')
+    teacher = models.ForeignKey(OtusUser, on_delete=models.CASCADE, null=True, related_name='lessons')
     date = models.DateField(default=datetime.now)
 
 
