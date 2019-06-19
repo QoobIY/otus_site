@@ -1,0 +1,138 @@
+@font-face {
+    font-family: Jedi;
+    src: url('jedi.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+}
+
+.header__title {
+    font-size: 55px;
+    text-align: center;
+    color: rgb(231, 243, 9);
+    font-family: Jedi;
+    padding: 30px;
+    background: url("bg.jpg");
+}
+
+.break {
+    width: 87%;
+    height: 10px;
+    margin-top: 0;
+    background: linear-gradient(90deg, #4a0000, #e10c0c, #4a0000);
+    border: 0;
+}
+
+.nav {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+.nav__item {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 15px;
+    transition: color 0.3s ease-in-out, background-color 0.1s ease-in-out;
+    text-decoration: none;
+    color: black;
+}
+
+.nav__item:hover {
+    color: rgb(231, 243, 9);
+    background: url("bg.jpg");
+}
+
+.content__title{
+    font-size: 44px;
+    font-family: Jedi;
+    text-align: center;
+}
+
+.courses__list {
+    text-align: center;
+}
+
+.course {
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    width: 400px;
+    transition: background-color 0.3s ease-in-out;
+    vertical-align: top;
+    min-height: 260px;
+    cursor: pointer;
+}
+
+.course:hover {
+    background: #cccccc;
+}
+
+.course__title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.course--ligth {
+    color: black;
+    background: white;
+}
+
+.course--dark {
+    color: white;
+    background: black;
+}
+
+.course__description {
+    font-size: 22px;
+    text-align: left;
+    padding: 15px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.course__date {
+    position: absolute;
+    text-align: left;
+    padding: 12px;
+    bottom: 0;
+}
+
+.teachers__list {
+    text-align: center;
+}
+
+.teacher {
+    display: inline-block;
+    margin: 15px;
+    width: 20%;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.teacher:hover {
+    background: #5b5b5b;
+    color: white;
+}
+
+.teacher__title {
+    font-family: Jedi;
+}
+
+.teacher__image {
+    height: 150px;
+    border-radius: 50%;
+}
+
+.teacher__description {
+    color: grey;
+    font-weight: 500;
+    font-style: italic;
+}
