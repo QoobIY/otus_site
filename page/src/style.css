@@ -9,30 +9,30 @@ body {
 }
 
 .header {
+    font-family: sans-serif;
 }
 
 .header__title {
-    font-size: 55px;
-    text-align: center;
-    color: rgb(231, 243, 9);
-    font-family: Jedi;
     padding: 30px;
     background: url("bg.jpg");
+    font-size: 30px;
+    text-align: center;
+    color: #E7F309;
+    font-family: Jedi, sans-serif;
 }
 
 .break {
-    width: 87%;
     height: 10px;
-    margin-top: 0;
-    background: linear-gradient(90deg, #4a0000, #e10c0c, #4a0000);
+    margin: 0 55px;
     border: 0;
+    background: linear-gradient(90deg, #4a0000, #e10c0c, #4a0000);
 }
 
 .nav {
+    width: 100%;
+    text-align: center;
     font-size: 36px;
     font-weight: bold;
-    text-align: center;
-    width: 100%;
 }
 
 .nav__item {
@@ -40,20 +40,20 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     padding: 15px;
-    transition: color 0.3s ease-in-out, background-color 0.1s ease-in-out;
     text-decoration: none;
     color: black;
+    transition: color 0.3s ease-in-out, background-color 0.1s ease-in-out;
 }
 
 .nav__item:hover {
-    color: rgb(231, 243, 9);
+    color: #E7F309;
     background: url("bg.jpg");
 }
 
 .content__title{
-    font-size: 44px;
-    font-family: Jedi;
+    font-size: 30px;
     text-align: center;
+    font-family: Jedi;
 }
 
 .courses__list {
@@ -65,14 +65,14 @@ body {
     display: inline-block;
     margin: 15px;
     width: 400px;
-    transition: background-color 0.3s ease-in-out;
-    vertical-align: top;
     min-height: 260px;
     cursor: pointer;
+    vertical-align: top;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .course:hover {
-    background: #cccccc;
+    background: #aaaaaa;
 }
 
 .course__title {
@@ -80,7 +80,7 @@ body {
     font-weight: bold;
 }
 
-.course--ligth {
+.course--light {
     color: black;
     background: white;
 }
@@ -91,9 +91,9 @@ body {
 }
 
 .course__description {
-    font-size: 22px;
-    text-align: left;
     padding: 15px;
+    text-align: left;
+    font-size: 22px;
     font-weight: 500;
     font-style: italic;
 }
@@ -115,6 +115,7 @@ body {
     width: 20%;
     vertical-align: top;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .teacher:hover {
@@ -127,7 +128,7 @@ body {
 }
 
 .teacher__image {
-    height: 150px;
+    height: 100px;
     border-radius: 50%;
 }
 
@@ -137,6 +138,22 @@ body {
     font-style: italic;
 }
 
-footer {
+.footer {
     margin: 10px;
+    font-family: sans-serif;
+}
+
+@media (min-width: 900px) {
+
+    .header__title {
+        font-size: 55px;
+    }
+
+    .content__title{
+        font-size: 44px;
+    }
+
+    .teacher__image {
+        height: 150px;
+    }
 }
