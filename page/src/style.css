@@ -81,7 +81,8 @@ body {
 }
 
 .course:hover {
-    background: #aaaaaa;
+    background: #ffe10085;
+    color: #000000;
 }
 
 .course__title {
