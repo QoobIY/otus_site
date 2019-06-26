@@ -1,6 +1,6 @@
 @font-face {
-    font-family: Jedi;
-    src: url('jedi.ttf');
+    font-family: Ru;
+    src: url('ru.woff2') format('woff');
 }
 
 body {
@@ -14,18 +14,18 @@ body {
 
 .header__title {
     padding: 30px;
-    background: url("bg.jpg");
+    background: #ffe100;
     font-size: 30px;
     text-align: center;
-    color: #E7F309;
-    font-family: Jedi, sans-serif;
+    color: #000000;
+    font-family: Ru, sans-serif;
 }
 
 .break {
     height: 10px;
     margin: 0 55px;
     border: 0;
-    background: linear-gradient(90deg, #4a0000, #e10c0c, #4a0000);
+    background: linear-gradient(90deg, #000000, #ffe053, #000000);
 }
 
 .nav {
@@ -47,28 +47,37 @@ body {
 
 .nav__item:hover {
     color: #E7F309;
-    background: url("bg.jpg");
+    background: #000000;
 }
 
 .content__title{
     font-size: 30px;
     text-align: center;
-    font-family: Jedi;
+    font-family: Ru, sans-serif;
+}
+
+.courses__title{
+    font-size: 27px;
+    text-align: center;
+    color: #ff6900;
+    font-family: Ru, sans-serif;
 }
 
 .courses__list {
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .course {
     position: relative;
-    display: inline-block;
-    margin: 15px;
-    width: 400px;
-    min-height: 260px;
     cursor: pointer;
-    vertical-align: top;
     transition: background-color 0.3s ease-in-out;
+    flex: 100%;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .course:hover {
@@ -99,10 +108,9 @@ body {
 }
 
 .course__date {
-    position: absolute;
     text-align: left;
-    padding: 12px;
-    bottom: 0;
+    margin-top: auto;
+    padding: 10px;
 }
 
 .teachers__list {
@@ -119,12 +127,11 @@ body {
 }
 
 .teacher:hover {
-    background: #5b5b5b;
-    color: white;
+    background: #ffe100;
 }
 
 .teacher__title {
-    font-family: Jedi;
+    font-family: Ru, sans-serif;
 }
 
 .teacher__image {
@@ -143,6 +150,27 @@ body {
     font-family: sans-serif;
 }
 
+
+.button-group {
+    display: flex;
+    justify-content: center;
+}
+.button-group__button {
+    margin: 10px;
+    padding: 5px;
+    background: #ffe100;
+    border: 1px solid #d2d2d2;
+    border-radius: 10%;
+    font-size: 25px;
+    transition: background 0.8s ease-in-out;
+}
+.button-group__button:hover {
+    background: #cbcbcb;
+}
+.button-group__button--active{
+    background: #ff8535;
+}
+
 @media (min-width: 900px) {
 
     .header__title {
@@ -153,7 +181,15 @@ body {
         font-size: 44px;
     }
 
+    .courses__title{
+        font-size: 35px;
+    }
+
     .teacher__image {
         height: 150px;
+    }
+
+    .course {
+        flex: 0.2 30%;
     }
 }
