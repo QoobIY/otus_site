@@ -1,7 +1,7 @@
 const init = () => {
     console.log('init');
-    let frontendButton = document.getElementsByClassName('button-group__button--frontend')[0],
-        backendButton = document.getElementsByClassName('button-group__button--backend')[0],
+    let frontendButton = document.getElementsByClassName('button__frontend')[0],
+        backendButton = document.getElementsByClassName('button__backend')[0],
         frontendList = document.getElementsByClassName('courses__wrap--frontend')[0],
         backendList = document.getElementsByClassName('courses__wrap--backend')[0];
     frontendButton.addEventListener('click', () => {

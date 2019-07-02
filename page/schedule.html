@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="src/style.css">
+    <title>Расписание занятий</title>
+    <script src="src/schedule.js"></script>
+</head>
+<body>
+<header class="header">
+    <div class="header__title">Курсы по веб-программированию для начинающих</div>
+    <div class="nav">
+        <a href="index.html" class="nav__item">Главная</a>
+        <a href="courses.html" class="nav__item">Курсы</a>
+        <a href="schedule.html" class="nav__item">Расписание</a>
+        <a href="#" class="nav__item">Преподаватели</a>
+        <a href="#" class="nav__item">Профиль</a>
+    </div>
+    <hr class="break" />
+</header>
+<div class="content">
+    <div class="content__title">Расписание занятий</div>
+    <div class="button-group">
+    </div>
+    <div class="content__item">
+        <div class="schedules">
+            <div class="schedules__list">
+            </div>
+        </div>
+        <template id="button-template">
+            <button class="button-group__button"></button>
+        </template>
+        <template id="schedule-template">
+            <div class="schedule">
+                <div class="schedule__title"></div>
+                <div class="schedule__description"></div>
+                <div class="schedule__date"></div>
+            </div>
+        </template>
+    </div>
+</div>
+<hr class="break" />
+<footer class="footer">
+    © 1977-2019 PERSONAL COURCES
+</footer>
+</body>
+</html>
