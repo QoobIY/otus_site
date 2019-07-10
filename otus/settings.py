@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
     'main.apps.MainConfig',
-    'graphene_django'
+    'graphene_django',
+    'django_rq',
 
 ]
 
@@ -129,3 +130,19 @@ LOGIN_REDIRECT_URL = '/'
 GRAPHENE = {
     'SCHEMA': 'otus.schema.schema'
 }
+
+RQ_QUEUES = {
+    'default': {
+        'HOST': 'localhost',
+        'PORT': 6379,
+        'DB': 0,
+        'PASSWORD': '',
+        'DEFAULT_TIMEOUT': 360,
+    }
+}
+
+EMAIL_HOST = 'TOP_SECRET'
+EMAIL_PORT = 666
+EMAIL_HOST_USER = 'TOP_SECRET'
+EMAIL_HOST_PASSWORD = 'TOP_SECRET'
+EMAIL_USE_TLS = True

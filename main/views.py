@@ -8,6 +8,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.views.generic import TemplateView
 from .forms import SignUpForm
+from .jobs import smail, periodic_send
+from django_rq import get_scheduler
+from datetime import datetime
 
 
 def signup(request):
@@ -17,9 +20,13 @@ def signup(request):
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
+            mail = form.cleaned_data.get('email')
             user = authenticate(username=username, password=raw_password)
-            OtusUser.objects.create(user=user)
+            otus_user = OtusUser.objects.create(user=user)
             login(request, user)
+            scheduler = get_scheduler('default')
+            scheduler.schedule(datetime.now(), periodic_send, interval=60, args=[otus_user.id])
+            smail.delay(mail)
             return redirect('index')
     else:
         form = SignUpForm()

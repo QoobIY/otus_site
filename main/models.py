@@ -15,15 +15,21 @@ class OtusUser(models.Model):
 class Course(models.Model):
     name = models.CharField(max_length=40)
     description = models.TextField()
-    students = models.ManyToManyField(OtusUser)
+    students = models.ManyToManyField(OtusUser, related_name='courses')
+
+    def __str__(self):
+        return self.name
 
 
 class Lesson(models.Model):
     name = models.CharField(max_length=40)
     description = models.TextField()
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True, related_name='lessons')
     teacher = models.ForeignKey(OtusUser, on_delete=models.CASCADE, null=True, related_name='lessons')
-    date = models.DateField(default=datetime.now)
+    date = models.DateTimeField(default=datetime.now)
+
+    def __str__(self):
+        return self.name
 
 
 def generate():
