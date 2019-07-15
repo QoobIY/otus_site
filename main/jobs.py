@@ -7,19 +7,16 @@ import traceback
 
 
 @job
-def periodic_send(user_id):
+def periodic_send(user_id, mail):
     try:
-        print(user_id)
         time = datetime.now(timezone.utc)
         user = OtusUser.objects.prefetch_related('courses__lessons').get(id=user_id)
         courses = user.courses.all()
-        mail = '2016abi@bk.ru'
-        print('user', user.id)
         for course in courses:
             lessons = course.lessons.all()
             for lesson in lessons:
-                print('lesson', lesson.date, lesson.name, 'delta', (lesson.date - time).seconds)
                 if lesson.date > time and (lesson.date - time).seconds < 1800:
+                    print('send periodic mail {}'.format(mail))
                     send_mail(
                         'Скоро начнётся занятие',
                         'Скоро начнётся занятие {} в {}.\nhttp://www.courses.otus/'.format(lesson.name, lesson.date),

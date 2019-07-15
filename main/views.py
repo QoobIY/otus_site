@@ -25,7 +25,7 @@ def signup(request):
             otus_user = OtusUser.objects.create(user=user)
             login(request, user)
             scheduler = get_scheduler('default')
-            scheduler.schedule(datetime.now(), periodic_send, interval=30*60, args=[otus_user.id])
+            scheduler.schedule(datetime.now(), periodic_send, interval=60, args=[otus_user.id, mail])
             smail.delay(mail)
             return redirect('index')
     else:
