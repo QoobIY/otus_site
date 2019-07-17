@@ -21,10 +21,11 @@ body {
     font-family: Ru, sans-serif;
 }
 
-.break {
+.header::after, .footer::before {
+    content: '';
     height: 10px;
-    margin: 0 55px;
-    border: 0;
+    margin: 15px 55px;
+    display: block;
     background: linear-gradient(90deg, #000000, #ffe053, #000000);
 }
 
@@ -32,7 +33,7 @@ body {
     width: 100%;
     text-align: center;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .nav__item {
@@ -86,7 +87,7 @@ body {
 
 .course__title {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .course--light {
@@ -156,6 +157,7 @@ body {
     justify-content: center;
 }
 
+.login__button,
 .button-group__button,
 .button__frontend,
 .button__backend {
@@ -167,7 +169,7 @@ body {
     font-size: 20px;
     font-family:  Ru, sans-serif;
     cursor: pointer;
-    transition: background 0.8s ease-in-out;
+    transition: background 0.4s ease-in-out;
 }
 
 .button-group__button:hover,
@@ -200,7 +202,7 @@ body {
 
 .schedule__title {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .schedule__description {
@@ -212,6 +214,35 @@ body {
 
 .schedule__date {
     padding: 10px;
+}
+
+.login {
+    text-align: center;
+}
+
+.login__title {
+    font-size: 40px;
+    color: #000000;
+    font-family: Ru, sans-serif;
+    margin-bottom: 30px;
+}
+
+.login__group {
+    margin: 25px;
+}
+
+.login__label {
+    font-size: 25px;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.login__input {
+    font-size: 20px;
+    border: 0;
+    border-radius: 15px;
+    background: rgba(255, 225, 0, 0.26);
+    padding: 5px 30px;
 }
 
 @media (min-width: 900px) {

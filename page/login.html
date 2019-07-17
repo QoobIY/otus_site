@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="src/style.css">
     <title>Расписание занятий</title>
-    <script src="src/schedule.js"></script>
+    <script src="output/bundle.min.js"></script>
 </head>
 <body>
 <header class="header">
@@ -19,25 +19,20 @@
     </div>
 </header>
 <div class="content">
-    <div class="content__title">Расписание занятий</div>
-    <div class="button-group">
-    </div>
-    <div class="content__item">
-        <div class="schedules">
-            <div class="schedules__list">
-            </div>
+    <form action="#" class="login">
+        <div class="login__title">Авторизация</div>
+        <div class="login__group">
+            <label class="login__label">Логин:</label>
+            <input class="login__input" type="text" name="login">
         </div>
-        <template id="button-template">
-            <button class="button-group__button"></button>
-        </template>
-        <template id="schedule-template">
-            <div class="schedule">
-                <div class="schedule__title"></div>
-                <div class="schedule__description"></div>
-                <div class="schedule__date"></div>
-            </div>
-        </template>
-    </div>
+        <div class="login__group">
+            <label class="login__label">Пароль:</label>
+            <input class="login__input" type="text" name="password">
+        </div>
+        <div class="login__group">
+            <input class="login__button" type="button" value="Войти">
+        </div>
+    </form>
 </div>
 <footer class="footer">
     © 1977-2019 PERSONAL COURCES
