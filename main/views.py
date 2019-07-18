@@ -4,7 +4,6 @@ from .models import OtusUser, Course, Lesson, generate
 from .serializers import UserSerializer, CourseSerializer, LessonSerializer
 from rest_framework import generics, status, views
 import hashlib
-from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.views.generic import TemplateView
 from .forms import SignUpForm
@@ -13,9 +12,10 @@ from django_rq import get_scheduler
 from datetime import datetime
 
 
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
+class SignUp(generics.CreateAPIView):
+    def post(self, request, *args, **kwargs):
+
+        form = SignUpForm(request.data)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -27,10 +27,28 @@ def signup(request):
             scheduler = get_scheduler('default')
             scheduler.schedule(datetime.now(), periodic_send, interval=60, args=[otus_user.id, mail])
             smail.delay(mail)
-            return redirect('index')
-    else:
-        form = SignUpForm()
-    return render(request, 'registration/signup.html', {'form': form})
+            return Response({
+                'success': True
+            })
+        else:
+            return Response({
+                'success': False,
+                'errors': form.errors
+            })
+
+
+class AuthView(generics.CreateAPIView):
+    def post(self, request, *args, **kwargs):
+        username = request.data['username']
+        password = request.data['password']
+        user = authenticate(request, username=username, password=password)
+        success = False
+        if user is not None:
+            login(request, user)
+            success = True
+        return Response({
+            'success': success,
+        })
 
 
 class UserView(generics.ListCreateAPIView):

@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -23,12 +24,15 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: __dirname,
         port: '3001',
         host: '192.168.2.20',
         proxy: {
-            '/zen': 'http://localhost:8080'
+            '/api': 'http://localhost:9000/',
         }
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'login.html'
+        })
+    ]
 };
-console.log('abi test webpack');
