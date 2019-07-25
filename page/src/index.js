@@ -1,3 +1,5 @@
+import './style.scss';
+
 const getCookie = name => {
 
     var matches = document.cookie.match(new RegExp(
