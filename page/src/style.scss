@@ -10,6 +10,13 @@ body {
     padding: 0;
 }
 
+%break_line {
+    content: '';
+    height: 10px;
+    margin: 15px 55px;
+    display: block;
+    background: linear-gradient(90deg, #000000, #ffe053, #000000);
+}
 .header {
 
     font-family: sans-serif;
@@ -30,11 +37,7 @@ body {
     }
 
     &::after {
-        content: '';
-        height: 10px;
-        margin: 15px 55px;
-        display: block;
-        background: linear-gradient(90deg, #000000, #ffe053, #000000);
+        @extend %break_line;
     }
 }
 
@@ -44,11 +47,7 @@ body {
     font-family: sans-serif;
 
     &::before {
-        content: '';
-        height: 10px;
-        margin: 15px 55px;
-        display: block;
-        background: linear-gradient(90deg, #000000, #ffe053, #000000);
+        @extend %break_line;
     }
 }
 
@@ -133,7 +132,7 @@ body {
 
 
     &:hover {
-        background: "#{$course_main_color}85";
+        background: #{$course_main_color}85;
         color: #000000;
     }
 
