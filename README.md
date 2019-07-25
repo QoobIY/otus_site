@@ -32,7 +32,7 @@ pip install -r req.txt
 5. Generate test data
 
     For generating test data follow this link: 
-    **<server_address>/generate**
+    **<server_address>/api/generate**
 
 
 ## Run webpack-dev-server
