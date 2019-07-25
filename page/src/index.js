@@ -70,7 +70,7 @@ loginForm.addEventListener('submit', function (ev) {
         .then( ans => ans.json())
         .then( res => {
             if(res.success) {
-                alert('Успешная авторизация');
+                document.location.href = '/courses2.html';
             } else {
                 alert('Неверный логин или пароль');
             }
