@@ -3,43 +3,38 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'bundle.min': "./src/index.js",
+        'course2': './src/course2.js'
+    },
     output: {
-        path: path.resolve(__dirname, 'output'),
-        filename: 'bundle.min.js',
+        path: path.join(__dirname, "output"),
+        filename: "[name].js"
     },
     module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['babel-preset-env']
-                    }
-                }
-            },
-            {
-                test: /\.scss$/,
-                exclude: /node_modules/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
-                })
-            },
-            {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                        }
-                    }
-                ]
+        rules: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader',
+                options: {presets: ['babel-preset-env']}
             }
-        ]
+        }, {
+            test: /\.scss$/,
+            exclude: /node_modules/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: ['css-loader', 'sass-loader']
+            })
+        }, {
+            test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                }
+            }]
+        }]
     },
     resolve: {
         extensions: ['.js', '.jsx', '.less']
