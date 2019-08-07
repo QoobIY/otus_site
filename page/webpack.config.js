@@ -4,12 +4,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        'bundle.min': "./src/index.js",
+        'bundle.min': './src/index.js',
         'course2': './src/course2.js'
     },
     output: {
-        path: path.join(__dirname, "output"),
-        filename: "[name].js"
+        path: path.join(__dirname, 'output'),
+        filename: '[name].js'
     },
     module: {
         rules: [{
@@ -42,7 +42,7 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         port: '3001',
-        host: '192.168.3.156',
+        host: '192.168.1.69',
         proxy: {
             '/api': 'http://localhost:9000/',
         }

@@ -31,7 +31,7 @@ def periodic_send(user_id, mail):
 @job
 def smail(mail):
     print('send mail {}'.format(mail))
-    send_mail(
+    return send_mail(
         'Успешная регистрация',
         'Вы успешно зарегестрировались на сайте http://www.courses.otus/',
         settings.EMAIL_HOST_USER,
