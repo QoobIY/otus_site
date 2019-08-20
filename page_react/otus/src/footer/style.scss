@@ -1,0 +1,11 @@
+@import "../style";
+
+.footer {
+
+  margin: 10px;
+  font-family: sans-serif;
+
+  &::before {
+    @extend %break_line;
+  }
+}

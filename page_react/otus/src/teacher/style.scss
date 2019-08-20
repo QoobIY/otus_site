@@ -1,0 +1,36 @@
+@import "../style";
+
+.teacher {
+  display: inline-block;
+  margin: 15px;
+  width: 20%;
+  vertical-align: top;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: $course_main_color;
+  }
+
+  &__title {
+    font-family: Ru, sans-serif;
+  }
+
+  &__image {
+    height: 100px;
+    border-radius: 50%;
+
+
+    @media (min-width: 900px) {
+      & {
+        height: 150px;
+      }
+    }
+  }
+
+  &__description {
+    color: grey;
+    font-weight: 500;
+    font-style: italic;
+  }
+}

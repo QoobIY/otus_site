@@ -1,0 +1,25 @@
+@import "../style";
+
+.header {
+
+  font-family: sans-serif;
+
+  &__title {
+    padding: 30px;
+    background: $course_main_color;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+    font-family: Ru, sans-serif;
+
+    @media (min-width: 900px) {
+      & {
+        font-size: 55px;
+      }
+    }
+  }
+
+  &::after {
+    @extend %break_line;
+  }
+}

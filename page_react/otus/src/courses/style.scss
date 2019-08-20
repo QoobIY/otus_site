@@ -1,0 +1,24 @@
+@import "../style";
+
+
+.courses {
+  &__title{
+    font-size: 27px;
+    text-align: center;
+    color: #ff6900;
+    font-family: Ru, sans-serif;
+
+    @media (min-width: 900px) {
+      & {
+        font-size: 35px;
+      }
+    }
+  }
+
+  &__list {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
