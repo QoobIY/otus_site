@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.scss';
-import Promo from './Promo';
+import Promo from './components/promo';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Promo />, document.getElementById('root'));

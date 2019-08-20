@@ -1,14 +1,14 @@
 import React from 'react'
-import teacher1 from './images/mblinova.jpg';
-import teacher2 from './images/esmirnov.jpg';
-import teacher3 from './images/yasharov.jpg';
-import teacher4 from './images/ldmirtiev.jpg';
-import teacher5 from './images/lrozhkova.jpg';
+import teacher1 from '../../images/mblinova.jpg';
+import teacher2 from '../../images/esmirnov.jpg';
+import teacher3 from '../../images/yasharov.jpg';
+import teacher4 from '../../images/ldmirtiev.jpg';
+import teacher5 from '../../images/lrozhkova.jpg';
 
-import Header from './header'
-import Footer from './footer'
-import Courses from './courses'
-import Teachers from './teachers'
+import Header from '../header'
+import Footer from '../footer'
+import Courses from '../courses'
+import Teachers from '../teachers'
 
 const promoCourses = [
     {
