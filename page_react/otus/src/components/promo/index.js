@@ -5,8 +5,6 @@ import teacher3 from '../../images/yasharov.jpg';
 import teacher4 from '../../images/ldmirtiev.jpg';
 import teacher5 from '../../images/lrozhkova.jpg';
 
-import Header from '../header'
-import Footer from '../footer'
 import Courses from '../courses'
 import Teachers from '../teachers'
 
@@ -63,7 +61,6 @@ export default class Promo extends React.Component{
     render() {
         return (
             <>
-                <Header/>
                 <div className="content">
                     <div className="content__title"> Категории курсов</div>
                     <div className="content__item">
@@ -74,7 +71,6 @@ export default class Promo extends React.Component{
                         <Teachers teachers={promoTeachers}/>
                     </div>
                 </div>
-                <Footer/>
             </>
         )
     }
