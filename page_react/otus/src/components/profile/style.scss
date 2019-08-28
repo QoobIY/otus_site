@@ -1,0 +1,13 @@
+@import "../../global";
+
+.profile {
+  margin: 0 auto;
+}
+
+.editable {
+  &__label {
+    font-size: 25px;
+    color: #000000;
+    font-family: Ru, sans-serif;
+  }
+}

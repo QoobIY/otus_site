@@ -139,3 +139,14 @@ class JoinView(TemplateView):
         course = Course.objects.get(id=course_id)
         course.students.add(otus_user)
         return HttpResponse('Вы успешно записались на курс - {}'.format(course.name))
+
+
+class ProfileView(views.APIView):
+    def get(self, request):
+        if not request.user.is_authenticated:
+            return Response({})
+        else:
+            return Response({
+                'name': request.user.first_name,
+                'email': request.user.email,
+            })

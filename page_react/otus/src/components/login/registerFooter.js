@@ -2,10 +2,10 @@ import React from 'react'
 
 
 
-const RegisterFooter = (props) => {
+const RegisterFooter = ({switchForm, text}) => {
     return (
             <div className="register-footer">
-                <a href="#" className="register-footer__text" onClick={props.switchForm}>Впервые на сайте?</a>
+                <a href="#" className="register-footer__text" onClick={switchForm}>{text}</a>
             </div>
     )
 };

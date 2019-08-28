@@ -1,0 +1,25 @@
+$course_main_color: #ffe100;
+
+%button_template {
+  margin: 15px;
+  padding: 7px;
+  background: $course_main_color;
+  border: 1px solid #d2d2d2;
+  border-radius: 10%;
+  font-size: 20px;
+  font-family:  Ru, sans-serif;
+  cursor: pointer;
+  transition: background 0.4s ease-in-out;
+}
+
+%button_template_hover {
+  background: #cbcbcb;
+}
+
+%break_line {
+  content: '';
+  height: 10px;
+  margin: 15px 55px;
+  display: block;
+  background: linear-gradient(90deg, #000000, #ffe053, #000000);
+}

@@ -4,32 +4,33 @@ import LoginForm from './loginForm'
 import RegisterForm from './registerForm'
 import RegisterFooter from "./registerFooter";
 
-const AUTH_TEXT = 'Авторизация',
-    REGISTER_TEXT = 'Впервые на сайте?';
+
 export default class Promo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: 'login'
+            show: 'login',
+            text: 'Впервые на сайте?',
         }
     }
 
 
     switchForm = (ev) => {
-        let new_state;
+        let new_state, text = this.state.text;
         if (ev.target) {
             new_state = this.state.show === 'register' ? 'login' : 'register';
             if (new_state === 'register') {
-                ev.target.innerText = AUTH_TEXT;
+                text = 'Авторизация';
             } else {
-                ev.target.innerText = REGISTER_TEXT;
+                text = 'Впервые на сайте?';
             }
         } else {
             new_state = ev;
         }
 
         this.setState({
-            show: new_state
+            show: new_state,
+            text
         });
     };
 
@@ -42,7 +43,7 @@ export default class Promo extends React.Component {
                 {
                     this.state.show === 'register' && <RegisterForm switchForm={this.switchForm}/>
                 }
-                <RegisterFooter switchForm={this.switchForm}/>
+                <RegisterFooter switchForm={this.switchForm} text={this.state.text}/>
             </div>
         )
     }
