@@ -56,5 +56,17 @@ npm run proxy
 >    ....
 ```
 
+
+## Run React server
+```bash
+cd page_react/otus
+npm run start
+
+> otus@0.1.0 start D:\host\otus_django\page_react\otus
+> react-scripts start
+> Starting the development server...
+
+```
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
