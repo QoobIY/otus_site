@@ -8,7 +8,7 @@ const login = (ev) => {
 
     post(ev.target.action, data).then( res => {
         if(res.success) {
-            document.location.href = '/courses2.html';
+            alert('OK');
         } else {
             alert('Неверный логин или пароль');
         }

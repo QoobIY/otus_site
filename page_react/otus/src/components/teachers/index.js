@@ -6,8 +6,8 @@ const Teachers = (props) => {
     return (
         <div className="teachers__list">
             {
-                props.teachers.map(teacher => (
-                    <Teacher teacher={teacher}/>
+                props.teachers.map( (teacher, key) => (
+                    <Teacher key={key} teacher={teacher}/>
                 ))
             }
         </div>

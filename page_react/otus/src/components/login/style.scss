@@ -42,4 +42,17 @@
 
 .register-footer {
   text-align: center;
+  &__text {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+
+    &:hover , &:focus {
+      text-decoration: none;
+    }
+  }
 }

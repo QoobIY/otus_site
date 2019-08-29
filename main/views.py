@@ -5,6 +5,7 @@ from .serializers import UserSerializer, CourseSerializer, LessonSerializer
 from rest_framework import generics, status, views
 import hashlib
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.models import User
 from django.views.generic import TemplateView
 from .forms import SignUpForm
 from .jobs import smail, periodic_send
@@ -146,7 +147,38 @@ class ProfileView(views.APIView):
         if not request.user.is_authenticated:
             return Response({})
         else:
+            otus_user = OtusUser.objects.get(user=request.user.id)
             return Response({
-                'name': request.user.first_name,
+                'first_name': request.user.first_name,
                 'email': request.user.email,
+                'date_of_brith': otus_user.date_of_brith
+            })
+
+
+class EditProfileView(generics.ListCreateAPIView):
+    def post(self, request, *args, **kwargs):
+        try:
+            editable_user_fields = ['first_name', 'email']
+            editable_otus_fields = ['date_of_brith']
+            for key, val in request.data.items():
+                if key in editable_user_fields:
+                        user = User.objects.get(id=request.user.id)
+                        user.__setattr__(key, val)
+                        user.save()
+                elif key in editable_otus_fields:
+                    otus_user = OtusUser.objects.get(user=request.user.id)
+                    otus_user.__setattr__(key, val)
+                    otus_user.save()
+                else:
+                    return Response({
+                        'success': False,
+                        'message': '{} not editable'.format(key),
+                    })
+            return Response({
+                'success': True,
+            })
+        except Exception as e:
+            return Response({
+                'success': False,
+                'message': '{}'.format(e),
             })

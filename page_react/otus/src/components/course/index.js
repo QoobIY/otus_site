@@ -5,7 +5,7 @@ const Course = (props) => {
     return (
         <div className={"course " + props.course.classes}>
             <div className="course__title">
-                {props.course.title}
+                {props.course.name}
             </div>
             <div className="course__description">
                 {props.course.description}

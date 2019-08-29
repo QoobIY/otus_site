@@ -14,7 +14,15 @@ export default class ProfileInput extends React.Component{
     editField = () => {
         const editText = this.state.editText === 'EDIT' ? 'SAVE' : 'EDIT';
         if(this.state.edit){
-            this.props.saveValue(this.props);
+            console.log(this.props);
+            const accept = () => {
+                this.setState({
+                    edit: false,
+                    editText
+                })
+            };
+            this.props.saveValue(this.props, accept);
+            return;
         }
         this.setState({
             edit: !this.state.edit,

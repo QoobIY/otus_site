@@ -10,13 +10,13 @@ import Teachers from '../teachers'
 
 const promoCourses = [
     {
-        title: 'FRONTEND',
+        name: 'FRONTEND',
         description: 'Наша компания предлагает разный спектр курсов по frontend разработке начиная от верстки сайтов , заканчивая Javascript\'ом с самыми современными фреймворками: React, Angular, Vue.',
         date: 'Ближайший курс по frontend\'у 1-го сентября',
         classes: 'course--light',
     },
     {
-        title: 'BACKEND',
+        name: 'BACKEND',
         description:
             `В данную катерогрию входят курсы, которые научат вас работать с серверной частью,
             скрыто от глаз пользователя и происходит вне его браузера и компьютера. 

@@ -1,6 +1,6 @@
 import React from 'react'
 import ProfileInput from './profileInput'
-import {get} from '../utils'
+import {get, post} from '../utils'
 
 export default class Profile extends React.Component{
     constructor(props) {
@@ -8,8 +8,9 @@ export default class Profile extends React.Component{
         this.state = {
             isLoading: true,
             profile: {
-                name: null,
-                email: null
+                first_name: null,
+                email: null,
+                date_of_brith: null
             }
         }
     }
@@ -25,12 +26,20 @@ export default class Profile extends React.Component{
         this.setState({profile});
     };
 
-    saveValue = (props) => {
-        console.log(props)
+    saveValue = ({name, value}, accept) => {
+        const data = new FormData();
+        data.set(name, value);
+        post('/api/edit_profile', data).then(res => {
+            if(res.success){
+                accept();
+            } else {
+                alert(res.message);
+            }
+        });
     };
 
     render() {
-            const {name, email} = this.state.profile;
+            const {first_name, email, date_of_brith} = this.state.profile;
         return (
             <>
                 <div className="content">
@@ -40,9 +49,11 @@ export default class Profile extends React.Component{
                             <div className="content__item">
                                 <div className="profile">
                                     <div className="profile__avatar"><img src="#" alt=""/></div>
-                                    <ProfileInput type='text' value={name} name='name' label="Имя"
+                                    <ProfileInput type='text' value={first_name} name='first_name' label="Имя"
                                                   changeValue={this.changeValue} saveValue={this.saveValue}/>
                                     <ProfileInput type='text' value={email} name='email' label="Почта"
+                                                  changeValue={this.changeValue} saveValue={this.saveValue}/>
+                                    <ProfileInput type='date' value={date_of_brith} name='date_of_brith' label="Дата рождения"
                                                   changeValue={this.changeValue} saveValue={this.saveValue}/>
                                 </div>
                             </div>
