@@ -10,27 +10,18 @@ export default class Promo extends React.Component {
         super(props);
         this.state = {
             show: 'login',
-            text: 'Впервые на сайте?',
         }
     }
 
-
     switchForm = (ev) => {
-        let new_state, text = this.state.text;
+        let newState;
         if (ev.target) {
-            new_state = this.state.show === 'register' ? 'login' : 'register';
-            if (new_state === 'register') {
-                text = 'Авторизация';
-            } else {
-                text = 'Впервые на сайте?';
-            }
+            newState = this.state.show === 'register' ? 'login' : 'register';
         } else {
-            new_state = ev;
+            newState = ev;
         }
-
         this.setState({
-            show: new_state,
-            text
+            show: newState,
         });
     };
 
@@ -43,7 +34,7 @@ export default class Promo extends React.Component {
                 {
                     this.state.show === 'register' && <RegisterForm switchForm={this.switchForm}/>
                 }
-                <RegisterFooter switchForm={this.switchForm} text={this.state.text}/>
+                <RegisterFooter switchForm={this.switchForm} show={this.state.show}/>
             </div>
         )
     }
