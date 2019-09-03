@@ -2,7 +2,7 @@ from django_rq import job
 from django.core.mail import send_mail
 from django.conf import settings
 from main.models import OtusUser
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import traceback
 
 
@@ -11,11 +11,10 @@ def periodic_send(user_id, mail):
     try:
         time = datetime.now(timezone.utc)
         user = OtusUser.objects.prefetch_related('courses__lessons').get(id=user_id)
-        courses = user.courses.all()
+        courses = user.courses.filter(lessons__date__range=[time, time+timedelta(0, 1800)])
         for course in courses:
             lessons = course.lessons.all()
             for lesson in lessons:
-                if lesson.date > time and (lesson.date - time).seconds < 1800:
                     print('send periodic mail {}'.format(mail))
                     send_mail(
                         'Скоро начнётся занятие',
