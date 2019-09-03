@@ -13,8 +13,8 @@ class MainJobsTestCase(TestCase):
         self.assertIsNone(ans)
 
     def test_periodic_send_error(self):
-        periodic_send(10, 'test@mail.test')
-        self.assertRaises(OtusUser.DoesNotExist)
+        with self.assertRaises(OtusUser.DoesNotExist):
+            periodic_send(10, 'test@mail.test')
 
     def test_smail(self):
         ans = smail('test@mail.test')
