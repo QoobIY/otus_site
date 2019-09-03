@@ -1,4 +1,4 @@
-@import "../../style";
+@import "../../global";
 
 .form {
   text-align: center;
@@ -29,6 +29,10 @@
     padding: 5px 30px;
   }
 
+  &__button {
+    @extend %button_template;
+  }
+
 }
 
 
@@ -38,8 +42,17 @@
 
 .register-footer {
   text-align: center;
-}
+  &__text {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
 
-.form__button {
-  @extend %button_template;
+    &:hover , &:focus {
+      text-decoration: none;
+    }
+  }
 }

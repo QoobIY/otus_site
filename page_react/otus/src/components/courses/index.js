@@ -7,8 +7,8 @@ const Courses = (props) => {
         <div className="courses">
             <div className="courses__list">
                 {
-                    props.courses.map( course => (
-                        <Course course={course}/>
+                    props.courses.map( (course, key) => (
+                        <Course key={key} course={course}/>
                         )
                     )
                 }

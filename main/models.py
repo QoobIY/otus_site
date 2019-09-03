@@ -7,6 +7,8 @@ import random
 class OtusUser(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     teacher = models.BooleanField(default=False)
+    avatar = models.CharField(max_length=255, blank=True)
+    date_of_brith = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return "{} {}".format(self.user.first_name, self.user.last_name)
