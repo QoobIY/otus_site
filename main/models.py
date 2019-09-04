@@ -28,7 +28,7 @@ class Lesson(models.Model):
     description = models.TextField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True, related_name='lessons')
     teacher = models.ForeignKey(OtusUser, on_delete=models.CASCADE, null=True, related_name='lessons')
-    date = models.DateTimeField(default=datetime.now)
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name

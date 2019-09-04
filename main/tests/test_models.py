@@ -1,16 +1,19 @@
-from django.test import TestCase
+import pytest
 from main.models import Course, Lesson, generate
 
 
-class MainModelsTestCase(TestCase):
+@pytest.mark.django_db
+def test_course():
+    course =Course.objects.create(name='TestCourse', description='None')
+    assert str(course) == course.name
 
-    def test_course(self):
-        course =Course.objects.create(name='TestCourse', description='None')
-        self.assertEqual(str(course), course.name)
 
-    def test_lesson(self):
-        lesson =Lesson.objects.create(name='TestLesson', description='None')
-        self.assertEqual(str(lesson), lesson.name)
+@pytest.mark.django_db
+def test_lesson():
+    lesson =Lesson.objects.create(name='TestLesson', description='None')
+    assert str(lesson) == lesson.name
 
-    def test_generate(self):
-        self.assertIsNone(generate())
+
+@pytest.mark.django_db
+def test_generate():
+    assert generate() is None

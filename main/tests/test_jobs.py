@@ -1,21 +1,24 @@
-from django.test import TestCase
 from main.jobs import periodic_send, smail
 from django.contrib.auth.models import User
 from main.models import OtusUser
+import pytest
 
 
-class MainJobsTestCase(TestCase):
+@pytest.mark.django_db
+def test_periodic_send_valid():
+    u = User.objects.create_user('TestUser001','Get@mail.com', 'mXdjf1238a!a')
+    otus_user = OtusUser.objects.create(user=u,teacher=False)
+    ans = periodic_send(otus_user.pk, 'test@mail.test')
+    assert ans is None
 
-    def test_periodic_send_valid(self):
-        u = User.objects.create_user('TestUser001','Get@mail.com', 'mXdjf1238a!a')
-        otus_user = OtusUser.objects.create(user=u,teacher=False)
-        ans = periodic_send(otus_user.pk, 'test@mail.test')
-        self.assertIsNone(ans)
 
-    def test_periodic_send_error(self):
-        with self.assertRaises(OtusUser.DoesNotExist):
-            periodic_send(10, 'test@mail.test')
+@pytest.mark.django_db
+def test_periodic_send_error():
+    with pytest.raises(OtusUser.DoesNotExist):
+        periodic_send(777, 'test@mail.test')
 
-    def test_smail(self):
-        ans = smail('test@mail.test')
-        self.assertEqual(ans, 1)
+
+@pytest.mark.django_db
+def test_smail():
+    ans = smail('test@mail.test')
+    assert ans == 1
