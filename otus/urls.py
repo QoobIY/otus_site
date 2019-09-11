@@ -3,10 +3,16 @@ from django.urls import path, include
 from django.conf import settings
 from graphene_django.views import GraphQLView
 
+
+def trigger_error(request):
+    raise Exception('Hello Otus')
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path("graphql", GraphQLView.as_view(graphiql=True)),
+    path('sentry-debug/', trigger_error),
 ]
 
 if settings.DEBUG:

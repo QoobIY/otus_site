@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -147,3 +150,8 @@ EMAIL_PORT = 666
 EMAIL_HOST_USER = 'TOP_SECRET'
 EMAIL_HOST_PASSWORD = 'TOP_SECRET'
 EMAIL_USE_TLS = True
+
+sentry_sdk.init(
+    dsn="https://fc2f18ba299b42598b2e6cef60c6935f@sentry.io/1724266",
+    integrations=[DjangoIntegration()]
+)
