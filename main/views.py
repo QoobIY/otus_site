@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponse
 from rest_framework.response import Response
-from .models import OtusUser, Course, Lesson, generate
-from .serializers import UserSerializer, CourseSerializer, LessonSerializer
+from .models import OtusUser, Course, Lesson, Mark, generate
+from .serializers import UserSerializer, CourseSerializer, LessonSerializer, MarkSerializer, MarkSerializerGet
 from rest_framework import generics, status, views
 import hashlib
 from django.contrib.auth import login, authenticate
@@ -11,7 +11,7 @@ from .forms import SignUpForm
 from .jobs import smail, periodic_send
 from django_rq import get_scheduler
 from datetime import datetime
-
+from rest_framework.permissions import IsAuthenticated
 
 class SignUp(generics.CreateAPIView):
     def post(self, request, *args, **kwargs):
@@ -182,3 +182,25 @@ class EditProfileView(generics.ListCreateAPIView):
                 'success': False,
                 'message': '{}'.format(e),
             })
+
+
+class MarksView(generics.ListCreateAPIView):
+
+    permission_classes = [IsAuthenticated]
+    serializer_class = MarkSerializer
+
+    def get(self, request, *args, **kwargs):
+        otus_user = OtusUser.objects.prefetch_related('marks').prefetch_related('assigned_mark').get(id=request.user.id)
+        if(otus_user.teacher):
+            serializer = MarkSerializerGet(otus_user.assigned_mark.all(), many=True)
+        else:
+            serializer = MarkSerializerGet(otus_user.marks.all(), many=True)
+        return Response({
+            'isTeacher': otus_user.teacher,
+            'marks': serializer.data
+        })
+
+
+class MarkView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = MarkSerializer
+    queryset = Mark.objects.all()

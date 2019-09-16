@@ -7,6 +7,7 @@ import Login from './components/login';
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Profile from './components/profile'
+import Performance from './components/performance'
 import Courses from './components/courses/page.js'
 import * as serviceWorker from './serviceWorker';
 
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/login" component={Login} />
             <Route path="/profile" component={Profile} />
             <Route path="/courses" component={Courses} />
+            <Route path="/performance" component={Performance} />
             <Footer/>
         </Router>
     )

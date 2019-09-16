@@ -23,6 +23,7 @@ class Header extends React.Component {
                     <Link to="/login" className="nav__item">Войти</Link>
                     {/*<Link className="nav__item" to='/api/logout'>Выйти</Link> */}
                     <Link to="/profile" className="nav__item">Профиль</Link>
+                    <Link to="/performance" className="nav__item">Успеваемость</Link>
                 </div>
             </header>
         );

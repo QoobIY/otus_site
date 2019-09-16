@@ -1,0 +1,93 @@
+@import "../../global";
+
+.marks {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mark {
+  display: inline-block;
+  margin: 15px;
+  width: 20%;
+  vertical-align: top;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 22px;
+
+  &:hover {
+    background: $course_main_color;
+  }
+
+  &__title {
+    font-family: Ru, sans-serif;
+    font-size: 28px;
+  }
+
+
+  &__mark {
+    font-weight: 600;
+    font-style: italic;
+    font-size: 30px;
+    text-shadow: 1px 1px black;
+
+    &--1, &--2 {
+      color: #f31000;
+    }
+
+    &--3 {
+      color: #f3dd4f;
+    }
+
+    &--4 {
+      color: #d1f37b;
+    }
+
+    &--5 {
+      color: #14f300;
+    }
+  }
+}
+
+
+.marks-table {
+
+  width: 100%;
+  font-size: 18px;
+
+  &__thead-tr{
+    font-family: Ru, sans-serif;
+    font-size: 19px;
+  }
+
+  &__tbody-tr{
+    text-align: center;
+
+    td {
+      padding: 0;
+    }
+
+    td:nth-child(odd){
+      background: #f5e98f;
+    }
+
+    td:nth-child(even){
+      background: rgba(38, 40, 34, 0.23);
+    }
+  }
+
+  &__tr{
+
+  }
+
+  &__button {
+    @extend %button_template;
+    font-size: 10px;
+    margin: 2px;
+  }
+
+  &__button:hover {
+    @extend %button_template_hover;
+  }
+}

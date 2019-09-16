@@ -18,4 +18,6 @@ urlpatterns = [
     path('auth/', include('django.contrib.auth.urls')),
     path('api/generate', views.generate_view),
     path('join', views.JoinView.as_view(), name='join'),
+    path('api/marks', views.MarksView.as_view(),  name='marks'),
+    path('api/mark/<int:pk>', views.MarkView.as_view(),  name='mark'),
 ]

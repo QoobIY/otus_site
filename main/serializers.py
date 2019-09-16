@@ -1,4 +1,4 @@
-from .models import Course, OtusUser, Lesson
+from .models import Course, OtusUser, Lesson, Mark
 from rest_framework import serializers
 
 
@@ -18,3 +18,20 @@ class LessonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lesson
         fields = '__all__'
+
+
+class MarkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Mark
+        fields = '__all__'
+
+
+class MarkSerializerGet(serializers.ModelSerializer):
+    teacher = serializers.StringRelatedField()
+    student = serializers.StringRelatedField()
+    lesson = serializers.StringRelatedField()
+
+    class Meta:
+        model = Mark
+        fields = '__all__'
+
