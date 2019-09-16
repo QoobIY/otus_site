@@ -3,40 +3,28 @@ import './style.scss'
 import LoginForm from './loginForm'
 import RegisterForm from './registerForm'
 import RegisterFooter from "./registerFooter";
+import {connect} from 'react-redux';
 
-
-export default class Promo extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            show: 'login',
-        }
-    }
-
-    switchForm = (ev) => {
-        let newState;
-        if (ev.target) {
-            newState = this.state.show === 'register' ? 'login' : 'register';
-        } else {
-            newState = ev;
-        }
-        this.setState({
-            show: newState,
-        });
-    };
-
+class Promo extends React.Component {
     render() {
         return (
             <div className="content">
                 {
-                    this.state.show === 'login' && <LoginForm/>
+                    this.props.show === 'login' && <LoginForm/>
                 }
                 {
-                    this.state.show === 'register' && <RegisterForm switchForm={this.switchForm}/>
+                    this.props.show === 'register' && <RegisterForm />
                 }
-                <RegisterFooter switchForm={this.switchForm} show={this.state.show}/>
+                <RegisterFooter />
             </div>
         )
     }
-
 }
+
+const mapStateToProps = ({loginReducter}) => {
+    return {
+        show: loginReducter.show
+    };
+};
+
+export default connect(mapStateToProps)(Promo);

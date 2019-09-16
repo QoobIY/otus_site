@@ -1,10 +1,11 @@
 import React from 'react'
 import {post} from '../utils'
+import {showLogin} from "../../actions";
+import {connect} from "react-redux";
 
-export default class RegisterForm extends React.Component {
+class RegisterForm extends React.Component {
 
     register = (ev) => {
-        console.log(ev.target);
         ev.preventDefault();
         const data = new FormData(ev.target),
             errors = ev.target.querySelector('.errors');
@@ -13,7 +14,7 @@ export default class RegisterForm extends React.Component {
             .then(res => {
                 if (res.success) {
                     alert('Успешная регистрация');
-                    this.props.switchForm('login');
+                    this.props.showLogin();
                 } else {
                     for (let e in res.errors) {
                         if (res.errors.hasOwnProperty(e)) {
@@ -61,4 +62,10 @@ export default class RegisterForm extends React.Component {
             </>
         )
     }
+}
+
+const mapDispatchToProps = {
+    showLogin
 };
+
+export default connect(null, mapDispatchToProps)(RegisterForm);

@@ -1,6 +1,6 @@
 import React from 'react'
 import {post} from '../utils'
-
+import {Redirect} from 'react-router'
 const login = (ev) => {
 
     ev.preventDefault();
@@ -8,7 +8,8 @@ const login = (ev) => {
 
     post(ev.target.action, data).then( res => {
         if(res.success) {
-            alert('OK');
+            console.log('ok');
+            return <Redirect to='/performance' />;
         } else {
             alert('Неверный логин или пароль');
         }
