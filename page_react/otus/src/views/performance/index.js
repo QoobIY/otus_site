@@ -1,7 +1,7 @@
 import React from 'react';
-import {get} from "../utils";
-import Marks from '../marks';
-import TeacherMarks from '../marks/teacherMarks';
+import {get} from "../../components/utils";
+import Marks from '../../components/marks/studentMark';
+import TeacherMarks from '../../components/marks/teacherMarks';
 
 export default class Promo extends React.Component {
     constructor(props) {

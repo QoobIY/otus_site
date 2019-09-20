@@ -1,7 +1,5 @@
-import React from 'react'
-import {connect} from "react-redux";
-import {showLogin, showRegister} from "../../actions";
-
+import React from 'react';
+import PropTypes from "prop-types";
 
 const RegisterFooter = ({show, showRegister, showLogin}) => {
     const switchForm = () => show === 'register' ? showLogin() : showRegister();
@@ -14,14 +12,10 @@ const RegisterFooter = ({show, showRegister, showLogin}) => {
     )
 };
 
-const mapStateToProps = ({loginReducter}) => {
-    return {
-        show: loginReducter.show
-    };
+RegisterFooter.propTypes = {
+    show: PropTypes.string.isRequired,
+    showRegister: PropTypes.func.isRequired,
+    showLogin: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = {
-  showLogin, showRegister
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterFooter);
+export default RegisterFooter

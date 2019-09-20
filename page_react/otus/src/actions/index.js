@@ -9,4 +9,3 @@ export function showRegister() {
         type: 'SHOW_REGISTER'
     }
 }
-

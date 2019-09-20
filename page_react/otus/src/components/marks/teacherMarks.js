@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss'
-
+import PropTypes from 'prop-types'
 
 export default class TeacherMarks extends React.Component {
 
@@ -34,3 +34,7 @@ export default class TeacherMarks extends React.Component {
         );
     }
 }
+
+TeacherMarks.propTypes  = {
+    marks: PropTypes.array.isRequired
+};

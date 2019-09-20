@@ -1,6 +1,7 @@
-import React from 'react'
-import './style.scss'
-import Course from '../course'
+import React from 'react';
+import './style.scss';
+import Course from '../course';
+import PropTypes from 'prop-types';
 
 const Courses = (props) => {
     return (
@@ -15,6 +16,10 @@ const Courses = (props) => {
             </div>
         </div>
     )
+};
+
+Courses.propTypes = {
+    courses: PropTypes.array.isRequired
 };
 
 export default Courses;

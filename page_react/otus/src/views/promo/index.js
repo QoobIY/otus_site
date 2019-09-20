@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import teacher1 from '../../images/mblinova.jpg';
 import teacher2 from '../../images/esmirnov.jpg';
 import teacher3 from '../../images/yasharov.jpg';
 import teacher4 from '../../images/ldmirtiev.jpg';
 import teacher5 from '../../images/lrozhkova.jpg';
 
-import Courses from '../courses'
-import Teachers from '../teachers'
+import Courses from '../../components/courses';
+import Teachers from '../../components/teachers';
 
 const promoCourses = [
     {

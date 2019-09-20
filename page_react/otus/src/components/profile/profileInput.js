@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-import './style.scss'
+import './style.scss';
 
 export default class ProfileInput extends React.Component{
     constructor(props) {
@@ -14,7 +14,6 @@ export default class ProfileInput extends React.Component{
     editField = () => {
         const editText = this.state.editText === 'EDIT' ? 'SAVE' : 'EDIT';
         if(this.state.edit){
-            console.log(this.props);
             const accept = () => {
                 this.setState({
                     edit: false,
@@ -37,7 +36,7 @@ export default class ProfileInput extends React.Component{
         return (
             <div className="editable">
                 <label className="editable__label">{label}: </label>
-                <input className="editable__input" disabled={!edit} name={name} type={type} value={value} onChange={changeValue}/>
+                <input className="editable__input" disabled={!edit} name={name} type={type} defaultValue={value || undefined} onChange={changeValue}/>
                 <button className="editable__button" onClick={this.editField}>{editText}</button>
             </div>
         )
@@ -53,4 +52,5 @@ ProfileInput.propTypes = {
     ]),
     name: PropTypes.string,
     label: PropTypes.string.isRequired,
+    changeValue: PropTypes.func.isRequired,
 };

@@ -1,5 +1,5 @@
 import React from 'react'
-import {get} from  '../utils'
+import {get} from  '../../components/utils'
 import Courses from '../courses'
 
 export default class Promo extends React.Component{

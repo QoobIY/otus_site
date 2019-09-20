@@ -1,5 +1,6 @@
-import React from 'react'
-import './style.scss'
+import React from 'react';
+import './style.scss';
+import PropTypes from 'prop-types';
 
 const Marks = ({marks}) => {
     return (
@@ -14,6 +15,10 @@ const Marks = ({marks}) => {
             }
         </div>
     )
+};
+
+Marks.propTypes = {
+    marks: PropTypes.array
 };
 
 export default Marks;

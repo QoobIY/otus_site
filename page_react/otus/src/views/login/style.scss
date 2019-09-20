@@ -1,0 +1,54 @@
+@import "../../global";
+
+.form {
+  text-align: center;
+
+  &__title {
+    font-size: 40px;
+    color: #000000;
+    font-family: Ru, sans-serif;
+    margin-bottom: 30px;
+  }
+
+  &__group {
+    margin: 25px;
+  }
+
+  &__label {
+    font-size: 25px;
+    font-weight: 600;
+    font-style: italic;
+    display: block;
+  }
+
+  &__input {
+    @extend %input_template;
+  }
+
+  &__button {
+    @extend %button_template;
+  }
+
+}
+
+
+.errors {
+  color: red;
+}
+
+.register-footer {
+  text-align: center;
+  &__text {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+
+    &:hover , &:focus {
+      text-decoration: none;
+    }
+  }
+}

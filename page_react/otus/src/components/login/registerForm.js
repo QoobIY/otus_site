@@ -1,9 +1,8 @@
-import React from 'react'
-import {post} from '../utils'
-import {showLogin} from "../../actions";
-import {connect} from "react-redux";
+import React from 'react';
+import {post} from '../utils';
+import PropTypes from "prop-types";
 
-class RegisterForm extends React.Component {
+export default class RegisterForm extends React.Component {
 
     register = (ev) => {
         ev.preventDefault();
@@ -17,7 +16,7 @@ class RegisterForm extends React.Component {
                     this.props.showLogin();
                 } else {
                     for (let e in res.errors) {
-                        if (res.errors.hasOwnProperty(e)) {
+                        if (Object.prototype.hasOwnProperty.call(res.errors,e)) {
                             const err = res.errors[e],
                                 d = document.createElement('div');
                             d.innerText = e + ': ' + err;
@@ -64,8 +63,6 @@ class RegisterForm extends React.Component {
     }
 }
 
-const mapDispatchToProps = {
-    showLogin
+RegisterForm.propTypes = {
+    showLogin: PropTypes.func.isRequired,
 };
-
-export default connect(null, mapDispatchToProps)(RegisterForm);

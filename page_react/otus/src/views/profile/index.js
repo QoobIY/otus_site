@@ -1,6 +1,6 @@
 import React from 'react'
-import ProfileInput from './profileInput'
-import {get, post} from '../utils'
+import ProfileInput from '../../components/profile/profileInput'
+import {get, post} from '../../components/utils'
 
 export default class Profile extends React.Component{
     constructor(props) {

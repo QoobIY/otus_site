@@ -1,12 +1,13 @@
 import React from 'react'
 import './style.scss'
 import Teacher from '../teacher'
+import PropTypes from "prop-types";
 
-const Teachers = (props) => {
+const Teachers = ({teachers}) => {
     return (
         <div className="teachers__list">
             {
-                props.teachers.map( (teacher, key) => (
+                teachers.map( (teacher, key) => (
                     <Teacher key={key} teacher={teacher}/>
                 ))
             }
@@ -14,4 +15,7 @@ const Teachers = (props) => {
     )
 };
 
+Teachers.propTypes = {
+    teachers: PropTypes.array
+};
 export default Teachers;
