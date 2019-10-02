@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Course component 1`] = `
+<div
+  className="course undefined"
+>
+  <div
+    className="course__title"
+  >
+    TestCourse
+  </div>
+  <div
+    className="course__description"
+  >
+    Test Description
+  </div>
+  <div
+    className="course__date"
+  >
+    21.08.1972
+  </div>
+</div>
+`;
