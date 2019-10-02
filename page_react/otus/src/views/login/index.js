@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import T from 'prop-types';
 import './style.scss';
 import LoginForm from '../../components/login/loginForm';
 import RegisterForm from '../../components/login/registerForm';
@@ -25,16 +25,12 @@ class Promo extends React.Component {
 }
 
 Promo.propTypes = {
-    show: PropTypes.string.isRequired,
-    showLogin: PropTypes.func.isRequired,
-    showRegister: PropTypes.func.isRequired,
+    show: T.string.isRequired,
+    showLogin: T.func.isRequired,
+    showRegister: T.func.isRequired,
 };
 
-const mapStateToProps = ({loginReducter}) => {
-    return {
-        show: loginReducter.show,
-    };
-};
+const mapStateToProps = ({loginReducter}) => ({show: loginReducter.show});
 
 const mapDispatchToProps = {
     showLogin, showRegister

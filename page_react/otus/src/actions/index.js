@@ -1,11 +1,4 @@
-export function showLogin() {
-    return {
-        type: 'SHOW_LOGIN'
-    }
-}
+export const showLogin = () => ({type: 'SHOW_LOGIN'});
 
-export function showRegister() {
-    return {
-        type: 'SHOW_REGISTER'
-    }
-}
+export const showRegister = () => ({type: 'SHOW_REGISTER'});
+

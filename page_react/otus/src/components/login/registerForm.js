@@ -1,6 +1,6 @@
 import React from 'react';
 import {post} from '../utils';
-import PropTypes from "prop-types";
+import T from "prop-types";
 
 export default class RegisterForm extends React.Component {
 
@@ -64,5 +64,5 @@ export default class RegisterForm extends React.Component {
 }
 
 RegisterForm.propTypes = {
-    showLogin: PropTypes.func.isRequired,
+    showLogin: T.func.isRequired,
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import T from "prop-types";
 
 const RegisterFooter = ({show, showRegister, showLogin}) => {
     const switchForm = () => show === 'register' ? showLogin() : showRegister();
@@ -13,9 +13,9 @@ const RegisterFooter = ({show, showRegister, showLogin}) => {
 };
 
 RegisterFooter.propTypes = {
-    show: PropTypes.string.isRequired,
-    showRegister: PropTypes.func.isRequired,
-    showLogin: PropTypes.func.isRequired,
+    show: T.string.isRequired,
+    showRegister: T.func.isRequired,
+    showLogin: T.func.isRequired,
 };
 
 export default RegisterFooter

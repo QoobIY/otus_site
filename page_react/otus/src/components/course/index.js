@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.scss'
-import PropTypes from 'prop-types';
+import T from 'prop-types';
 
 const Course = (props) => {
     return (
@@ -17,11 +17,11 @@ const Course = (props) => {
 };
 
 Course.propTypes = {
-    course: PropTypes.shape({
-        name: PropTypes.string,
-        description: PropTypes.string,
-        date: PropTypes.string,
-        classes: PropTypes.string,
+    course: T.shape({
+        name: T.string,
+        description: T.string,
+        date: T.string,
+        classes: T.string,
     })
 };
 export default Course;

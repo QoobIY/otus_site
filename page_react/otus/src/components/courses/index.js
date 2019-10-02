@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 import Course from '../course';
-import PropTypes from 'prop-types';
+import T from 'prop-types';
 
 const Courses = (props) => {
     return (
@@ -19,7 +19,7 @@ const Courses = (props) => {
 };
 
 Courses.propTypes = {
-    courses: PropTypes.array.isRequired
+    courses: T.array.isRequired
 };
 
 export default Courses;

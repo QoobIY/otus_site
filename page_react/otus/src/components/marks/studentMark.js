@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss';
-import PropTypes from 'prop-types';
+import T from 'prop-types';
 
 const Marks = ({marks}) => {
     return (
@@ -10,7 +10,7 @@ const Marks = ({marks}) => {
                     <div key={key} className="mark">
                         <div className="mark__title">{lesson}</div>
                         <div className="mark__teacher"><span>Преподаватель:</span> {teacher}</div>
-                        <div className={"mark__mark " + 'mark__mark--'+mark}>{mark}</div>
+                        <div className={"mark__mark mark__mark--"+mark}>{mark}</div>
                     </div>)
             }
         </div>
@@ -18,7 +18,7 @@ const Marks = ({marks}) => {
 };
 
 Marks.propTypes = {
-    marks: PropTypes.array
+    marks: T.array
 };
 
 export default Marks;

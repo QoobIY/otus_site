@@ -15,10 +15,6 @@ const login = (ev) => {
 };
 
 export default class LoginForm extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <form action="/api/auth" className="form login-form" method="POST" onSubmit={login}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 import Teacher from '../teacher'
-import PropTypes from "prop-types";
+import T from "prop-types";
 
 const Teachers = ({teachers}) => {
     return (
@@ -16,6 +16,6 @@ const Teachers = ({teachers}) => {
 };
 
 Teachers.propTypes = {
-    teachers: PropTypes.array
+    teachers: T.array
 };
 export default Teachers;

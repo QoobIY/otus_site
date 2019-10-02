@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import T from 'prop-types';
 import './style.scss';
 
 export default class ProfileInput extends React.Component{
@@ -45,12 +45,12 @@ export default class ProfileInput extends React.Component{
 }
 
 ProfileInput.propTypes = {
-    type: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
+    type: T.string.isRequired,
+    value: T.oneOfType([
+        T.string,
+        T.number,
     ]),
-    name: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    changeValue: PropTypes.func.isRequired,
+    name: T.string,
+    label: T.string.isRequired,
+    changeValue: T.func.isRequired,
 };

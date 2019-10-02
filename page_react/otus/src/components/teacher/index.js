@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss';
-import PropTypes from 'prop-types';
+import T from 'prop-types';
 
 const Teacher = ({teacher}) => {
     return (
@@ -15,10 +15,10 @@ const Teacher = ({teacher}) => {
 };
 
 Teacher.propTypes = {
-    teacher: PropTypes.shape({
-        image: PropTypes.string.isRequired,
-        position: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired
+    teacher: T.shape({
+        image: T.string.isRequired,
+        position: T.string.isRequired,
+        name: T.string.isRequired
     })
 };
 export default Teacher;
