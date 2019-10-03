@@ -1,5 +1,5 @@
 import pytest
-from main.models import Course, Lesson, generate
+from backend.main import Course, Lesson, generate
 
 
 @pytest.mark.django_db

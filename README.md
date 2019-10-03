@@ -13,7 +13,7 @@ pip install -r req.txt
 ## Usage
 1. Go to the project folder: 
     ```bash
-    cd otus
+    cd otus/backend/app
     ```
 2. Create database with migrating models: 
     ```python
@@ -38,7 +38,7 @@ pip install -r req.txt
 ## Run webpack-dev-server
 
 ```bash
-cd page
+cd frontend/app
 npm run proxy
 
 > @ proxy /root/dj/page

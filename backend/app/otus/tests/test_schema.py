@@ -1,7 +1,7 @@
-from otus.schema import schema
+from backend.otus.schema import schema
 from graphene_django.utils.testing import GraphQLTestCase
 from collections import OrderedDict
-from main.models import Course
+from backend.main import Course
 class GQLTestCase(GraphQLTestCase):
 
     GRAPHQL_SCHEMA = schema

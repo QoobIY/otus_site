@@ -1,7 +1,7 @@
 from django_rq import job
 from django.core.mail import send_mail
 from django.conf import settings
-from main.models import OtusUser
+from backend.main import OtusUser
 from datetime import datetime, timezone, timedelta
 
 
