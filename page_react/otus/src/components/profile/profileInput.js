@@ -53,4 +53,5 @@ ProfileInput.propTypes = {
     name: T.string,
     label: T.string.isRequired,
     changeValue: T.func.isRequired,
+    saveValue: T.func.isRequired
 };
