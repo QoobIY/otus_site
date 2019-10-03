@@ -1,5 +1,5 @@
 from django.test import TestCase
-from backend.otus.wsgi import application
+from otus.wsgi import application
 from django.core.handlers.wsgi import WSGIHandler
 
 
