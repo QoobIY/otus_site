@@ -1,4 +1,4 @@
-from main.jobs import periodic_send, smail
+from main.models import periodic_send, smail
 from django.contrib.auth.models import User
 from main.models import OtusUser
 import pytest

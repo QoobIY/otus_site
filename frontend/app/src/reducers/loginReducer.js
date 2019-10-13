@@ -7,7 +7,6 @@ export default function loginReducer(state={show: 'login'}, action) {
         case 'SHOW_REGISTER':
             new_state.show = 'register';
             break;
-        default:
-            return new_state;
     }
+    return new_state
 }

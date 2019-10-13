@@ -13,7 +13,7 @@ pip install -r req.txt
 ## Usage
 1. Go to the project folder: 
     ```bash
-    cd otus
+    cd otus/backend/app
     ```
 2. Create database with migrating models: 
     ```python
@@ -38,7 +38,7 @@ pip install -r req.txt
 ## Run webpack-dev-server
 
 ```bash
-cd page
+cd frontend/app
 npm run proxy
 
 > @ proxy /root/dj/page
@@ -67,6 +67,13 @@ npm run start
 > Starting the development server...
 
 ```
+
+## Run through Docker
+```bash
+docker-compose up -d
+```
+
+Backend will be raised on port 9000, frontend - 3000.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

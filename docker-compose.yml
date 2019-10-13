@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  back:
+    container_name: "otus_back"
+    build: backend/
+    command: python manage.py runserver 0.0.0.0:9000
+    ports:
+      - 9000:9000
+  front:
+    container_name: "otus_front"
+    build: frontend/
+    command: npm start
+    ports:
+      - 3000:3000
+  redis:
+    image: "redis:alpine"
+    ports:
+      - 6379:6379
