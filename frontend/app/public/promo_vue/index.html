@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Вырвигла промо - Онлайн курсы по программированию</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header__title">
+            Новейшие авторские курсы для продвинутых и начинающих программистов от профессионалов индустрии.
+        </div>
+    </header>
+    <div id="app">
+        <div class="about">
+            Наша компания предлагает большой набор курсов, охватывающий весь спектр IT-индустрии.
+
+            <div class="about__description">            Компания основана Ларри Пейджем и Сергеем Брином.
+                Впервые она была зарегистрирована как частная компания 4 января 1996 года,
+                а 19 августа 2004 года начала продажу своих акций на фондовом рынке[12].
+                Тогда Ларри Пейдж, Сергей Брин и Эрик Шмидт договорились о совместной работе в Google в течение двадцати лет,
+                до 2024 года[13]. Заявленной миссией компании с самого начала была «организация мировой информации,
+                обеспечение её доступности и пользы для всех»[14], а неофициальный лозунг компании, придуманный
+                инженером Google Полом Бакхейтом, — «Не будь злым» (англ. Don’t be evil)[15][16].
+                В 2003 году компания переехала в свою нынешнюю штаб-квартиру в Маунтин-Вью (штат Калифорния).
+            </div>
+            <div class="about__description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Ab accusantium aliquam, deserunt eligendi minus, neque non,
+                officia praesentium provident quae reprehenderit repudiandae saepe veritatis.
+                Aperiam dolores eum, eveniet iusto laboriosam nemo quam veritatis voluptate?
+                Adipisci amet beatae blanditiis consectetur deleniti dolorum ea eaque eius enim, esse est,
+                eum explicabo facere hic id illo laborum laudantium magnam minima modi molestias mollitia
+                nam nemo numquam obcaecati officiis quam quasi quia rerum sed sequi similique.
+            </div>
+
+
+            <button class="button" @click="scrollToCourses">Перейти к списку курсов</button>
+        </div>
+        <div class="courses">
+            <div class="courses__title">Список курсов</div>
+            <div class="courses__list">
+                <div v-bind:style="{background: course.bg}" class="course" v-for="(course, index) in selected" v-bind:key="index">
+                    <div class="course__title">{{course.title}}</div>
+                    <div class="course__description">{{course.description}}</div>
+                    <button class="course__button button"  v-bind:disabled="course.freePlaces === 0">
+                        {{ course.freePlaces ? ("Свободных мест: " +course.freePlaces) : "Набор закрыт"}}
+                    </button>
+                </div>
+            </div>
+            <div class="courses__left-arrow" @click="swapCourse(false)"> < </div>
+            <div class="courses__right-arrow" @click="swapCourse(true)"> > </div>
+        </div>
+        <div class="employment">
+            <div class="employment__title">
+                <img class="employment__icon" src="files/garant.png" alt="">
+                Гарантированное трудостройсто по завершению обучения
+            </div>
+            <div class="partners">
+                <div class="partners__title">Наши партнёры</div>
+                <div class="partners__list">
+                    <img class="parnters__image" v-bind:src="'files/p'+i+'.png'" v-for="i in 9" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="signup">
+            <button class="signup__button button" @click="switchForm(true)">Записаться на курсы</button>
+        </div>
+        <div class="mask" v-bind:class="{'form__show':showForm}" @click.self="switchForm(false)">
+            <div class="form" v-bind:class="{'form__show--in': showIn }">
+                <div class="form__title">Оставьте свои контакты</div>
+                <div v-if="form.body=='show'">
+                    <input v-model="form.name" class="form__input" type="text" placeholder="Имя">
+                    <input v-model="form.mail" class="form__input"  type="mail" placeholder="Почта">
+                    <button class="button" @click="sendForm">Отправить</button>
+                </div>
+                <div v-else-if="form.body=='loading'" class="form__content">
+                    <img class="form__loader" src="files/loader.svg" alt="">
+                </div>
+                <div v-else class="form__content">
+                    Заявка успешно отправлена!
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        © 2015-2019 TOP COURSES
+        <script src="js/script.js"></script>
+    </footer>
+</body>
+</html>
